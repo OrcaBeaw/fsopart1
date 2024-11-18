@@ -1,28 +1,12 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Search from "./components/Search.jsx";
 import Booking from "./components/Booking.jsx";
+import Notification from "./components/Notification.jsx";
 import phoneService from "./services/phone.js";
 
 const App = () => {
     const [persons, setPersons] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
-
-    // Notification component to display messages
-    const Notification = ({ message }) => {
-        if (message === null) {
-            return null;
-        }
-        return (
-            <div className="error">
-                {message}
-            </div>
-        );
-    };
-
-    Notification.propTypes = {
-        message: PropTypes.string
-    };
 
     // Fetching initial data from the server
     useEffect(() => {
